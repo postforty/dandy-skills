@@ -1,5 +1,5 @@
 ---
-name: Python uv Development Rules
+name: python-uv-development-rules
 description: Guidelines for managing dependencies and executing code in Python projects using uv.
 ---
 

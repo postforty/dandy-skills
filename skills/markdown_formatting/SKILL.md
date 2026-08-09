@@ -1,5 +1,5 @@
 ---
-name: Markdown Formatting Rules
+name: markdown-formatting-rules
 description: Guidelines for stable rendering and structure in markdown documents.
 ---
 

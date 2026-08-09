@@ -1,5 +1,5 @@
 ---
-name: Commit Message Rules
+name: commit-message-rules
 description: Guidelines for generating git commit messages based on specific project rules.
 ---
 
