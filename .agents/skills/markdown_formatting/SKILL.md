@@ -23,19 +23,20 @@ This skill provides specific rules for markdown formatting to ensure rendering s
 - **H2~H6**: Use for document body structure, following the standard numbering system below.
 
 ### Standard Numbering System (Korean Official Document Convention)
-When writing markdown documents, apply the following heading-number mapping consistently:
+When writing markdown documents, apply the following heading-number mapping consistently based on the official guidelines:
 
 | Depth | Number Format | Name | Markdown | Example |
 | :---: | :---: | :--- | :---: | :--- |
-| 1 | **1.** | Chapter | `##` (H2) | `## 1. 개요` |
-| 2 | **1.1** | Section | `###` (H3) | `### 1.1 프로젝트 목적` |
-| 3 | **1)** | Clause | `####` (H4) | `#### 1) 서비스 대상` |
-| 4 | **(1)** | Item | `#####` (H5) | `##### (1) 유학생 그룹` |
-| 5 | **①** | Sub-item | `######` (H6) | `###### ① 세부 사항` |
-| 6 | **가.** | Note | Body bold | **가.** 설명 |
+| 1 | **1.** | First Item | `##` (H2) | `## 1. 개요` |
+| 2 | **가.** | Second Item | `###` (H3) | `### 가. 프로젝트 목적` |
+| 3 | **1)** | Third Item | `####` (H4) | `#### 1) 서비스 대상` |
+| 4 | **가)** | Fourth Item | `#####` (H5) | `##### 가) 유학생 그룹` |
+| 5 | **(1)** | Fifth Item | `######` (H6) | `###### (1) 세부 사항` |
+| 6 | **(가)** | Sixth Item | Body text | **(가)** 설명 |
+| 7 | **①** | Seventh Item | Body text | **①** 추가 설명 |
 
 ### Numbering Rules
-- **H2~H3 use absolute numbers**: Numbers are unique across the entire document (e.g., `1.`, `1.1`, `2.`, `2.1`).
-- **H4 and below use relative numbers**: Numbers reset to 1 within each parent section (e.g., `1)`, `2)` restart under each new `###` section).
-- **Use depth only as needed**: If content is simple, H2~H3 is sufficient. Introduce H4~H6 only when further subdivision is necessary.
-- **Level 6 (가.) is body text**: Use bold text in the body, not a markdown heading.
+- **Numbers are relative**: Numbering resets within each parent section (e.g., `가.`, `나.` restart under each new `1.` section).
+- **Use depth only as needed**: If content is simple, H2~H3 is sufficient. Introduce deeper levels only when further subdivision is necessary.
+- **Level 6 and 7 are body text**: Use bold text in the body, not a markdown heading.
+- **Single items do not get symbols**: If there is only one item in a level, do not assign an item symbol (e.g. if there is no `나.`, do not use `가.`).
