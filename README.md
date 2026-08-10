@@ -13,6 +13,8 @@ dandy-skills/
 ├── README.md
 ├── AGENTS.md                   # 프로젝트 전역 규칙 예시 (Global Rules)
 └── .agents/
+    ├── agents/
+    │   └── research.md         # 코드베이스 분석 및 탐색에 특화된 서브에이전트
     ├── skills/
     │   ├── coding_guidelines/  # 코드 작성 및 리뷰 행동 지침 (Karpathy Guidelines 기반)
     │   └── markdown_formatting/# 문서 렌더링 안정성 및 표준 계층 구조 규칙
@@ -20,7 +22,7 @@ dandy-skills/
         └── commit.md           # 컨텍스트 기반 커밋 메시지 자동 생성 워크플로우
 ```
 
-## 🛠️ 제공되는 기능 (Skills & Workflows)
+## 🛠️ 제공되는 기능 (Agents, Skills & Workflows)
 
 ### 1. Coding Guidelines (Skill: `coding_guidelines`)
 코드 작성, 수정, 리팩토링 시 준수해야 할 핵심 원칙입니다.
@@ -40,6 +42,12 @@ dandy-skills/
 - `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `chore` 등 표준 타입 정의
 - 파일 경로나 URL 제외 및 독립된 마크다운 코드 블록 내 메시지 작성 지원
 
+### 4. Research Subagent (Agent: `research.md`)
+프로젝트 코드베이스 분석, 파일 탐색 및 구조적 탐색에 특화된 서브에이전트입니다.
+- 프로젝트의 구조 파악 및 특정 로직 검색을 위한 도구(`view_file`, `list_dir`, `grep_search` 등) 활용
+- 코드를 직접 수정하지 않고 깊이 있게 분석 및 탐색
+- 탐색 결과를 명확하고 간결하게 요약하여 상위 에이전트에게 전달
+
 ## 📜 전역 규칙 (Global Rules)
 
 ### Python uv Development Rules (`AGENTS.md`)
@@ -58,6 +66,7 @@ dandy-skills/
 ## ✍️ 기여하기
 
 새로운 설정을 추가하려면 다음 단계를 따르세요:
+- **Agent 추가**: `.agents/agents/` 내에 마크다운 파일을 작성하여 서브에이전트 속성과 프롬프트를 정의합니다. (YAML frontmatter 필수)
 - **Skill 추가**: `.agents/skills/` 내에 폴더를 생성하고 `SKILL.md`를 작성합니다. (YAML frontmatter 필수)
 - **Workflow 추가**: `.agents/workflows/` 내에 마크다운 파일을 작성하여 워크플로우 단계를 정의합니다.
 - **전역 규칙 추가**: 프로젝트 루트의 `AGENTS.md`에 새로운 규칙을 추가합니다.
