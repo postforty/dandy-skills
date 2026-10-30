@@ -15,15 +15,14 @@ dandy-skills/
 ├── .env.example                    # 환경 변수 설정 샘플 파일
 ├── .gitignore                      # Git 추적 제외 설정
 └── .agents/
-    ├── skills/
-    │   ├── address-geocoding/      # 한국 주소(도로명/지번/POI) 위경도 좌표 변환 스킬 (VWorld & OSM)
-    │   ├── coding_guidelines/      # 코드 작성 및 리뷰 행동 지침 (Karpathy Guidelines 기반)
-    │   └── markdown_formatting/    # 문서 렌더링 안정성 및 표준 계층 구조 규칙
-    └── workflows/
-        └── commit.md               # 컨텍스트 기반 커밋 메시지 자동 생성 워크플로우
+    └── skills/
+        ├── address-geocoding/      # 한국 주소(도로명/지번/POI) 위경도 좌표 변환 스킬 (VWorld & OSM)
+        ├── coding_guidelines/      # 코드 작성 및 리뷰 행동 지침 (Karpathy Guidelines 기반)
+        ├── commit/                 # 컨텍스트 기반 커밋 메시지 자동 생성 스킬
+        └── markdown_formatting/    # 문서 렌더링 안정성 및 표준 계층 구조 규칙
 ```
 
-## 🛠️ 제공되는 기능 (Skills & Workflows)
+## 🛠️ 제공되는 기능 (Skills)
 
 ### 1. Coding Guidelines (Skill: `coding_guidelines`)
 코드 작성, 수정, 리팩토링 시 준수해야 할 핵심 원칙입니다.
@@ -44,9 +43,9 @@ dandy-skills/
 - **주소 전처리 및 정제**: 층수/호수 등 상세 부가정보 자동 필터링 후 검색 수행
 - **CLI 스크립트 제공**: `.agents/skills/address-geocoding/scripts/get_coordinates.py`를 통한 일반 텍스트 및 JSON 포맷 좌표 조회 지원
 
-### 4. Commit Message Generator (Workflow: `commit.md`)
-대화 컨텍스트를 바탕으로 프로젝트 커밋 컨벤션에 맞게 커밋 메시지를 생성하는 워크플로우입니다.
-- `/commit` 슬래시 커맨드를 통해 트리거 가능
+### 4. Commit Message Generator (Skill: `commit`)
+대화 컨텍스트를 바탕으로 프로젝트 커밋 컨벤션에 맞게 커밋 메시지를 생성하는 스킬입니다.
+- `/commit` 슬래시 커맨드 또는 에이전트 자동 디스커버리를 통해 트리거 가능
 - `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `chore` 등 표준 타입 정의
 - 파일 경로나 URL 제외 및 독립된 마크다운 코드 블록 내 메시지 작성 지원
 
@@ -59,7 +58,7 @@ dandy-skills/
 
 ## 💡 사용 방법
 
-에이전트는 작업 맥락에 따라 자동으로 관련 Skill이나 Rule을 로드합니다. 명시적으로 특정 가이드나 워크플로우를 적용하고 싶을 때는 다음과 같이 요청할 수 있습니다:
+에이전트는 작업 맥락에 따라 자동으로 관련 Skill이나 Rule을 로드합니다. 명시적으로 특정 가이드나 스킬을 적용하고 싶을 때는 다음과 같이 요청할 수 있습니다:
 
 > "이 프로젝트의 `coding_guidelines`를 준수하면서 리팩토링해줘."  
 > "`markdown_formatting` 규칙에 맞춰서 보고서를 작성해줘."  
@@ -70,9 +69,7 @@ dandy-skills/
 
 새로운 설정을 추가하려면 다음 단계를 따르세요:
 - **Skill 추가**: `.agents/skills/` 내에 폴더를 생성하고 `SKILL.md`를 작성합니다. (YAML frontmatter 필수)
-- **Workflow 추가**: `.agents/workflows/` 내에 마크다운 파일을 작성하여 워크플로우 단계를 정의합니다.
 - **전역 규칙 추가**: 프로젝트 루트의 `AGENTS.md`에 새로운 규칙을 추가합니다.
 
 ---
 *Created by Dandycode*
-
